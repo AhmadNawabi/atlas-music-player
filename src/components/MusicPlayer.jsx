@@ -1,31 +1,15 @@
-import React from "react";
-import CoverArt from "./CoverArt";
-import SongTitle from "./SongTitle";
-import PlayControls from "./PlayControls";
-import VolumeControls from "./VolumeControls";
-import PlayListItem from "./PlayListItem";
+// src/components/MusicPlayer.jsx
+import React from 'react';
+import CurrentlyPlaying from './CurrentlyPlaying';
+import Playlist from './Playlist';
 
-export default function MusicPlayer() {
+const MusicPlayer = () => {
   return (
-    <div className="bg-black p-6 rounded-xl flex flex-col items-center gap-6 w-full max-w-md mx-auto">
-      {/* Cover Art */}
-      <CoverArt />
-
-      {/* Song Title */}
-      <SongTitle />
-
-      {/* Play Controls */}
-      <PlayControls />
-
-      {/* Volume Controls */}
-      <VolumeControls />
-
-      {/* Playlist Item */}
-      <div className="w-full">
-        <PlayListItem />
-        <PlayListItem />
-        <PlayListItem />
-      </div>
+    <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 p-6 max-w-6xl mx-auto">
+      <CurrentlyPlaying />
+      <Playlist />
     </div>
   );
-}
+};
+
+export default MusicPlayer;

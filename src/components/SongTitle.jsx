@@ -1,10 +1,13 @@
-import React from "react";
-import songTitleImg from "../../images/song-title.png";
+// src/components/SongTitle.jsx
+import React from 'react';
 
-export default function SongTitle() {
+const SongTitle = () => {
   return (
-    <div className="text-center mt-4">
-      <img src={songTitleImg} alt="Song Title" className="mx-auto" />
+    <div className="text-center">
+      <h1 className="text-2xl font-bold text-text">Blinding Lights</h1>
+      <p className="text-lg text-text/70 mt-1">The Weeknd</p>
     </div>
   );
-}
+};
+
+export default SongTitle;

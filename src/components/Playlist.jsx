@@ -1,27 +1,25 @@
-import React from "react";
-import PlayListItem from "./PlayListItem";
+// src/components/Playlist.jsx
+import React from 'react';
+import PlayListItem from './PlayListItem';
 
-export default function Playlist() {
-  // Example playlist data
-  const songs = [
-    { id: 1, title: "Song One", artist: "Artist One", length: "3:45" },
-    { id: 2, title: "Song Two", artist: "Artist Two", length: "4:05" },
-    { id: 3, title: "Song Three", artist: "Artist Three", length: "2:58" },
-  ];
-
-  const selectedSongId = 2; // Highlight the currently playing song
-
+const Playlist = () => {
   return (
-    <div className="mt-6 w-full max-w-lg mx-auto bg-gray-800 rounded-lg p-4 flex flex-col gap-2">
-      {songs.map((song) => (
+    <div className="w-full max-w-md bg-white rounded-2xl shadow-md p-4">
+      <h2 className="text-lg font-semibold text-gray-800 mb-3">Playlist</h2>
+      <div className="space-y-2">
+        <PlayListItem title="Blinding Lights" artist="The Weeknd" duration="3:20" />
         <PlayListItem
-          key={song.id}
-          title={song.title}
-          artist={song.artist}
-          length={song.length}
-          selected={song.id === selectedSongId}
+          title="Save Your Tears"
+          artist="The Weeknd"
+          duration="3:35"
+          isActive={true}
         />
-      ))}
+        <PlayListItem title="Starboy" artist="The Weeknd" duration="3:50" />
+        <PlayListItem title="Take My Breath" artist="The Weeknd" duration="4:10" />
+        <PlayListItem title="Die For You" artist="The Weeknd" duration="4:20" />
+      </div>
     </div>
   );
-}
+};
+
+export default Playlist;

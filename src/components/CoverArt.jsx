@@ -1,14 +1,16 @@
-import React from "react";
-import cover from "../../images/cover-art.png";
+// src/components/CoverArt.jsx
+import React from 'react';
 
-export default function CoverArt() {
+const CoverArt = () => {
   return (
-    <div className="w-48 h-48">
+    <div className="w-52 h-52 rounded-xl overflow-hidden shadow-lg">
       <img
-        src={cover}
-        alt="Cover Art"
-        className="w-full h-full object-cover rounded-lg"
+        src="/images/cover-art.png"
+        alt="Album Cover"
+        className="w-full h-full object-cover"
       />
     </div>
   );
-}
+};
+
+export default CoverArt;

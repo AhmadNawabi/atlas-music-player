@@ -1,15 +1,26 @@
-import React from "react";
-import playlistImg from "../../images/playlistitem.png"; // Just for reference
+// src/components/PlayListItem.jsx
+import React from 'react';
 
-export default function PlayListItem() {
+const PlayListItem = ({ title, artist, duration, isActive = false }) => {
   return (
-    <div className="flex justify-between items-center px-4 py-2 hover:bg-gray-800 rounded-lg w-full max-w-md">
+    <div
+      className={`flex justify-between items-center py-3 px-4 rounded-xl transition-colors ${
+        isActive
+          ? 'bg-primary-500 text-white'
+          : 'text-text dark:text-text-light hover:bg-background/50 dark:hover:bg-background-dark/50'
+      }`}
+    >
       <div>
-        <img src={playlistImg} alt="Playlist Item" className="w-12 h-12 inline-block mr-2" />
-        <p className="text-white font-medium inline">Song Name</p>
-        <p className="text-gray-400 text-sm">Artist Name</p>
+        <p className="font-medium">{title}</p>
+        <p className={`text-sm ${isActive ? 'text-primary-100' : 'text-text-muted-light dark:text-text-muted-dark'}`}>
+          {artist}
+        </p>
       </div>
-      <p className="text-gray-400 text-sm">3:45</p>
+      <span className={`text-sm ${isActive ? 'text-primary-100' : 'text-text-muted-light dark:text-text-muted-dark'}`}>
+        {duration}
+      </span>
     </div>
   );
-}
+};
+
+export default PlayListItem;

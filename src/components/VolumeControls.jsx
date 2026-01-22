@@ -1,14 +1,20 @@
-import React from "react";
+// src/components/VolumeControls.jsx
+import React from 'react';
+import { Volume2 } from 'lucide-react';
 
-export default function VolumeControls() {
+const VolumeControls = () => {
   return (
-    <div className="flex items-center justify-center mt-6">
+    <div className="flex items-center space-x-3 w-64">
+      <Volume2 size={20} className="text-text/70" />
       <input
         type="range"
         min="0"
         max="100"
-        className="w-48 h-1 rounded-full bg-gray-600 accent-white"
+        defaultValue="80"
+        className="w-full h-2 bg-background rounded-lg appearance-none cursor-pointer accent-primary-500"
       />
     </div>
   );
-}
+};
+
+export default VolumeControls;

@@ -1,25 +1,27 @@
-import React from "react";
-import { Play, SkipBack, SkipForward, Shuffle, FastForward } from "lucide-react";
-import controlsImg from "../../images/play-controls.png"; // Just for verification
+// src/components/PlayControls.jsx
+import React from 'react';
+import { Play, SkipBack, SkipForward, Shuffle, RotateCcw } from 'lucide-react';
 
-export default function PlayControls() {
+const PlayControls = () => {
   return (
-    <div className="flex justify-center items-center gap-6 mt-6">
-      <button className="text-white p-2 rounded-full hover:bg-gray-700">
+    <div className="flex items-center justify-center space-x-6">
+      <button className="text-text/60 hover:text-text transition-colors">
+        <RotateCcw size={24} />
+      </button>
+      <button className="text-text/60 hover:text-text transition-colors">
+        <SkipBack size={32} />
+      </button>
+      <button className="bg-primary-500 text-white rounded-full p-3 hover:bg-primary-600 transition-colors">
+        <Play size={28} />
+      </button>
+      <button className="text-text/60 hover:text-text transition-colors">
+        <SkipForward size={32} />
+      </button>
+      <button className="text-text/60 hover:text-text transition-colors">
         <Shuffle size={24} />
-      </button>
-      <button className="text-white p-2 rounded-full hover:bg-gray-700">
-        <SkipBack size={24} />
-      </button>
-      <button className="bg-white text-black p-4 rounded-full hover:scale-105 transform transition">
-        <Play size={24} />
-      </button>
-      <button className="text-white p-2 rounded-full hover:bg-gray-700">
-        <SkipForward size={24} />
-      </button>
-      <button className="text-white p-2 rounded-full hover:bg-gray-700">
-        <FastForward size={24} />
       </button>
     </div>
   );
-}
+};
+
+export default PlayControls;
