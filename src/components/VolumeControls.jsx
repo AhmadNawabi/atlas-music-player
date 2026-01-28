@@ -1,20 +1,28 @@
-// src/components/VolumeControls.jsx
-import React from 'react';
-import { Volume2 } from 'lucide-react';
+import { useState } from 'react'
+import { Volume2, VolumeOff } from 'lucide-react'
 
-const VolumeControls = () => {
+export default function VolumeControls() {
+  const [muted, setMuted] = useState(false)
+
   return (
-    <div className="flex items-center space-x-3 w-64">
-      <Volume2 size={20} className="text-text/70" />
+    <div className="mt-2 flex w-64 items-center gap-3">
+      {/* Volume toggle */}
+      <button
+        onClick={() => setMuted(!muted)}
+        className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors duration-200"
+      >
+        {muted ? <VolumeOff strokeWidth={0.5} className="text-textMuted dark:text-textMuted-dark" /> : <Volume2 strokeWidth={0.5} className="text-text dark:text-text-dark" />}
+      </button>
+
+      {/* Volume slider */}
       <input
         type="range"
         min="0"
         max="100"
-        defaultValue="80"
-        className="w-full h-2 bg-background rounded-lg appearance-none cursor-pointer accent-primary-500"
+        defaultValue="70"
+        disabled={muted}
+        className={`w-full h-1.5 rounded-full ${muted ? 'opacity-40 cursor-not-allowed' : ''} bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 accent-gray-700 transition-all duration-300`}
       />
     </div>
-  );
-};
-
-export default VolumeControls;
+  )
+}

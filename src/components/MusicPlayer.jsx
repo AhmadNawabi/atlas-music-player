@@ -1,15 +1,42 @@
-// src/components/MusicPlayer.jsx
-import React from 'react';
-import CurrentlyPlaying from './CurrentlyPlaying';
-import Playlist from './Playlist';
+import CurrentlyPlaying from './CurrentlyPlaying'
+import Playlist from './Playlist'
+import Footer from './Footer'
 
-const MusicPlayer = () => {
+export default function MusicPlayer() {
   return (
-    <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 p-6 max-w-6xl mx-auto">
-      <CurrentlyPlaying />
-      <Playlist />
-    </div>
-  );
-};
+    <div className="min-h-screen flex flex-col bg-appBg dark:bg-appBg-dark text-text dark:text-text-dark transition-colors duration-300">
+      
+      {/* Main Player Container */}
+      <div className="flex items-center justify-center px-4 py-4 md:px-6">
+        <div className="
+          w-full max-w-6xl
+          rounded-3xl
+          p-6
+          shadow-xl
+          backdrop-blur-md
+          transition-colors duration-300
+          bg-panelBg/90 dark:bg-panelBg-dark/80
+        ">
+          
+          {/* Grid: CurrentlyPlaying + Playlist */}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 md:gap-8">
+            
+            {/* Currently Playing Section */}
+            <div className="pr-4 md:border-r md:border-r-gray-300/40 dark:md:border-r-gray-500/30">
+              <CurrentlyPlaying />
+            </div>
 
-export default MusicPlayer;
+            {/* Playlist Section */}
+            <div className="pl-6">
+              <Playlist />
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  )
+}

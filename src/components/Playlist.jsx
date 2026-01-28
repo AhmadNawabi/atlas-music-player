@@ -1,25 +1,24 @@
-// src/components/Playlist.jsx
-import React from 'react';
-import PlayListItem from './PlayListItem';
+import PlayListItem from './PlayListItem'
 
-const Playlist = () => {
+export default function Playlist() {
   return (
-    <div className="w-full max-w-md bg-white rounded-2xl shadow-md p-4">
-      <h2 className="text-lg font-semibold text-gray-800 mb-3">Playlist</h2>
-      <div className="space-y-2">
-        <PlayListItem title="Blinding Lights" artist="The Weeknd" duration="3:20" />
-        <PlayListItem
-          title="Save Your Tears"
-          artist="The Weeknd"
-          duration="3:35"
-          isActive={true}
-        />
-        <PlayListItem title="Starboy" artist="The Weeknd" duration="3:50" />
-        <PlayListItem title="Take My Breath" artist="The Weeknd" duration="4:10" />
-        <PlayListItem title="Die For You" artist="The Weeknd" duration="4:20" />
+    <div className="w-full"> 
+      <h3 className="mb-4 text-lg font-semibold text-text dark:text-text-dark">
+        Playlist
+      </h3>
+
+      <div className="space-y-2 overflow-y-auto max-h-[460px] rounded-lg p-3">
+        <PlayListItem title="Painted in Blue" artist="Soul Canvas" duration="5:55" active />
+        <PlayListItem title="Tidal Drift" artist="Echoes of the Sea" duration="8:02" />
+        <PlayListItem title="Fading Shadows" artist="The Emberlight" duration="3:01" />
+        <PlayListItem title="Cosmic Drift" artist="Solar Flare" duration="5:01" />
+        <PlayListItem title="Urban Serenade" artist="Midnight Groove" duration="4:54" />
+        <PlayListItem title="Whispers in the Wind" artist="Rust & Ruin" duration="6:13" />
+        <PlayListItem title="Electric Fever" artist="Neon Jungle" duration="8:41" />
+        <PlayListItem title="Edge of the Abyss" artist="Steel Horizon" duration="2:27" />
+        <PlayListItem title="Golden Haze" artist="Valvet Waves" duration="3:15" />
+        <PlayListItem title="Shatter the Silence" artist="Thunderclap Echo" duration="8:22" />
       </div>
     </div>
-  );
-};
-
-export default Playlist;
+  )
+}

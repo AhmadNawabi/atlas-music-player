@@ -1,26 +1,12 @@
-// src/components/PlayListItem.jsx
-import React from 'react';
-
-const PlayListItem = ({ title, artist, duration, isActive = false }) => {
+export default function PlayListItem({ title, artist, duration, active }) {
   return (
-    <div
-      className={`flex justify-between items-center py-3 px-4 rounded-xl transition-colors ${
-        isActive
-          ? 'bg-primary-500 text-white'
-          : 'text-text dark:text-text-light hover:bg-background/50 dark:hover:bg-background-dark/50'
-      }`}
-    >
+    <div className={`flex justify-between items-center p-3 rounded-md cursor-pointer transition-colors duration-200
+      ${active ? 'bg-blue-300 text-white' : 'hover:bg-gray-100'}`}>
       <div>
-        <p className="font-medium">{title}</p>
-        <p className={`text-sm ${isActive ? 'text-primary-100' : 'text-text-muted-light dark:text-text-muted-dark'}`}>
-          {artist}
-        </p>
+        <p className="font-medium text-text dark:text-text-dark">{title}</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">{artist}</p>
       </div>
-      <span className={`text-sm ${isActive ? 'text-primary-100' : 'text-text-muted-light dark:text-text-muted-dark'}`}>
-        {duration}
-      </span>
+      <span className={`text-sm ${active ? 'text-white' : 'text-gray-500 dark:text-gray-400'}`}>{duration}</span>
     </div>
-  );
-};
-
-export default PlayListItem;
+  )
+}
