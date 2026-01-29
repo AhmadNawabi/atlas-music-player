@@ -1,10 +1,9 @@
-// src/components/PlayListItem.tsx
 import React from "react";
 
 type PlayListItemProps = {
   title: string;
   artist: string;
-  duration: number; // duration in seconds
+  duration: string; // MM:SS
   active?: boolean;
   onClick?: () => void;
 };
@@ -16,36 +15,27 @@ const PlayListItem: React.FC<PlayListItemProps> = ({
   active = false,
   onClick,
 }) => {
-  // Format seconds to MM:SS or HH:MM:SS
-  const formatDuration = (seconds: number) => {
-    const hrs = Math.floor(seconds / 3600);
-    const mins = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
-    if (hrs > 0) {
-      return `${hrs}:${mins.toString().padStart(2, "0")}:${secs
-        .toString()
-        .padStart(2, "0")}`;
-    } else {
-      return `${mins}:${secs.toString().padStart(2, "0")}`;
-    }
-  };
-
   return (
     <div
       onClick={onClick}
-      className={`flex justify-between items-center p-3 rounded-md cursor-pointer transition-colors duration-200
-        ${active ? "bg-blue-300 text-white" : "hover:bg-gray-100"}`}
+      className={`
+        flex justify-between items-center p-3 rounded-md cursor-pointer transition-colors duration-300 ease-in-out
+        ${active
+          ? "bg-blue-200 text-blue-900 font-semibold dark:bg-blue-900 dark:text-white"
+          : "bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-blue-800/50"
+        }
+      `}
     >
       <div>
-        <p className="font-medium text-text dark:text-text-dark">{title}</p>
-        <p className="text-sm text-gray-500 dark:text-gray-400">{artist}</p>
+        <p className={`font-medium ${active ? "text-blue-900 dark:text-white" : "text-gray-900 dark:text-gray-300"}`}>
+          {title}
+        </p>
+        <p className={`text-sm ${active ? "text-blue-800 dark:text-white" : "text-gray-700 dark:text-gray-400"}`}>
+          {artist}
+        </p>
       </div>
-      <span
-        className={`text-sm ${
-          active ? "text-white" : "text-gray-500 dark:text-gray-400"
-        }`}
-      >
-        {formatDuration(duration)}
+      <span className={`text-sm ${active ? "text-blue-900 dark:text-white" : "text-gray-700 dark:text-gray-400"}`}>
+        {duration}
       </span>
     </div>
   );

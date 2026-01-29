@@ -48,7 +48,7 @@ export default function MusicPlayer() {
   if (isLoading) return <LoadingSkeleton />;
 
   return (
-    <div className="min-h-screen flex flex-col bg-appBg dark:bg-appBg-dark text-text dark:text-text-dark transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-appBg dark:bg-darkBg text-text dark:text-text-dark transition-colors duration-300">
       <div className="flex items-center justify-center px-4 py-4 md:px-6">
         <div className="
           w-full max-w-6xl
@@ -56,6 +56,7 @@ export default function MusicPlayer() {
           p-6
           shadow-xl
           backdrop-blur-md
+          bg-panelBg/90 dark:bg-darkPanel/90
           transition-colors duration-300
           bg-panelBg/90 dark:bg-panelBg-dark/80
         ">

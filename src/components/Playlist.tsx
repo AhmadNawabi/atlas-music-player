@@ -8,52 +8,30 @@ type PlaylistProps = {
   onSelectSong: (index: number) => void;
 };
 
-const Playlist: React.FC<PlaylistProps> = ({
-  playlist,
-  currentIndex,
-  onSelectSong,
-}) => {
-  // Convert duration to seconds
-  const parseDuration = (duration: string | number): number => {
-    if (typeof duration === "number") return duration;
-    const parts = duration.split(":").map(Number);
-    if (parts.length === 2) return parts[0] * 60 + parts[1];
-    if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
-    return 0;
-  };
-
-  // Reorder playlist: current song first
-  const reorderedPlaylist = [
-    playlist[currentIndex],
-    ...playlist.filter((_, i) => i !== currentIndex),
-  ];
-
+const Playlist: React.FC<PlaylistProps> = ({ playlist, currentIndex, onSelectSong }) => {
   return (
     <div className="w-full">
-      <h3 className="mb-4 text-lg font-semibold text-text dark:text-text-dark">
+      <h3 className="mb-3 text-lg font-semibold text-gray-900 dark:text-gray-100 relative">
         Playlist
+        {/* small underline just below the heading */}
+        <span className="absolute bottom-0 left-0 h-[2px] w-10 bg-gradient-to-r from-blue-400 to-blue-600 dark:from-blue-300 dark:to-blue-500 rounded-full"></span>
       </h3>
 
-      <div className="space-y-2 overflow-y-auto max-h-[460px] rounded-lg p-3">
-        {reorderedPlaylist.map((song, index) => {
-          // Determine if this song is the current song
-          const isActive = song.id === playlist[currentIndex].id;
-
-          return (
-            <PlayListItem
-              key={song.id}
-              title={song.title}
-              artist={song.artist}
-              duration={parseDuration(song.duration)}
-              active={isActive}
-              onClick={() => {
-                // Find original index in playlist
-                const originalIndex = playlist.findIndex((s) => s.id === song.id);
-                onSelectSong(originalIndex);
-              }}
-            />
-          );
-        })}
+      <div className="space-y-2 overflow-y-auto max-h-[460px] rounded-lg p-1">
+        {playlist.map((song, index) => (
+          <PlayListItem
+            key={song.id}
+            title={song.title}
+            artist={song.artist}
+            duration={
+              typeof song.duration === "number"
+                ? `${Math.floor(song.duration / 60)}:${String(song.duration % 60).padStart(2, "0")}`
+                : song.duration
+            }
+            active={index === currentIndex}
+            onClick={() => onSelectSong(index)}
+          />
+        ))}
       </div>
     </div>
   );
