@@ -1,3 +1,4 @@
+import LoadingSkeleton from './LoadingSkeleton'
 import CurrentlyPlaying from './CurrentlyPlaying'
 import Playlist from './Playlist'
 import Footer from './Footer'
@@ -18,7 +19,7 @@ export default function MusicPlayer() {
           bg-panelBg/90 dark:bg-panelBg-dark/80
         ">
           
-          {/* Grid: CurrentlyPlaying + Playlist */}
+          {/* CurrentlyPlaying + Playlist */}
           <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 md:gap-8">
             
             {/* Currently Playing Section */}
@@ -34,8 +35,6 @@ export default function MusicPlayer() {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
       <Footer />
     </div>
   )
