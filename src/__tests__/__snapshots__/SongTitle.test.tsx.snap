@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SongTitle snapshot tests > renders song title and artist 1`] = `
+<div>
+  <div
+    class="text-center"
+  >
+    <h2
+      class="text-xl font-semibold text-text dark:text-text-dark"
+    >
+      Test Song
+    </h2>
+    <p
+      class="text-textMuted dark:text-textMuted-dark text-gray-500"
+    >
+      Test Artest
+    </p>
+  </div>
+</div>
+`;
+
+exports[`SongTitle snapshot tests > renders with different song data 1`] = `
+<div>
+  <div
+    class="text-center"
+  >
+    <h2
+      class="text-xl font-semibold text-text dark:text-text-dark"
+    >
+      Another Song
+    </h2>
+    <p
+      class="text-textMuted dark:text-textMuted-dark text-gray-500"
+    >
+      Another Artist
+    </p>
+  </div>
+</div>
+`;

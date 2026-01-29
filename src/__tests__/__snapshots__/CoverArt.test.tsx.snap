@@ -1,0 +1,65 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CoverArt snapshot tests > renders with lyrics on hover disabled 1`] = `
+<div>
+  <div
+    class="
+        h-[280px] w-[380px] overflow-hidden rounded-xl
+        relative
+        before:absolute before:inset-0 before:rounded-xl
+        before:border-t before:border-t-transparent
+        before:bg-gradient-to-r before:from-transparent before:via-gray-300/40 before:to-transparent
+        dark:before:via-gray-500/30
+      "
+  >
+    <img
+      alt="Album cover for Test Song by Test Artist"
+      class="h-full w-full object-cover rounded-xl"
+      src="https://via.placeholder.com/380x280.png?text=Cover"
+    />
+  </div>
+</div>
+`;
+
+exports[`CoverArt snapshot tests > renders with lyrics on hover enabled 1`] = `
+<div>
+  <div
+    class="
+        h-[280px] w-[380px] overflow-hidden rounded-xl
+        relative
+        before:absolute before:inset-0 before:rounded-xl
+        before:border-t before:border-t-transparent
+        before:bg-gradient-to-r before:from-transparent before:via-gray-300/40 before:to-transparent
+        dark:before:via-gray-500/30
+      "
+    title="Some lyrics here"
+  >
+    <img
+      alt="Album cover for Test Song by Test Artist"
+      class="h-full w-full object-cover rounded-xl"
+      src="https://via.placeholder.com/380x280.png?text=Cover"
+    />
+  </div>
+</div>
+`;
+
+exports[`CoverArt snapshot tests > renders with no lyrics 1`] = `
+<div>
+  <div
+    class="
+        h-[280px] w-[380px] overflow-hidden rounded-xl
+        relative
+        before:absolute before:inset-0 before:rounded-xl
+        before:border-t before:border-t-transparent
+        before:bg-gradient-to-r before:from-transparent before:via-gray-300/40 before:to-transparent
+        dark:before:via-gray-500/30
+      "
+  >
+    <img
+      alt="Album cover for Test Song by Test Artist"
+      class="h-full w-full object-cover rounded-xl"
+      src="https://via.placeholder.com/380x280.png?text=Cover"
+    />
+  </div>
+</div>
+`;

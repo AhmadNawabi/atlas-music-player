@@ -1,0 +1,88 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PlayListItem snapshot tests > renders a normal playlist item 1`] = `
+<div>
+  <div
+    class="
+        flex justify-between items-center p-3 rounded-md cursor-pointer transition-colors duration-300 ease-in-out
+        bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-blue-800/50
+      "
+  >
+    <div>
+      <p
+        class="font-medium text-gray-900 dark:text-gray-300"
+      >
+        Song one
+      </p>
+      <p
+        class="text-sm text-gray-700 dark:text-gray-400"
+      >
+        Artist one
+      </p>
+    </div>
+    <span
+      class="text-sm text-gray-700 dark:text-gray-400"
+    >
+      3:45
+    </span>
+  </div>
+</div>
+`;
+
+exports[`PlayListItem snapshot tests > renders an active Playlist item 1`] = `
+<div>
+  <div
+    class="
+        flex justify-between items-center p-3 rounded-md cursor-pointer transition-colors duration-300 ease-in-out
+        bg-blue-200 text-blue-900 font-semibold dark:bg-blue-900 dark:text-white
+      "
+  >
+    <div>
+      <p
+        class="font-medium text-blue-900 dark:text-white"
+      >
+        Song Two
+      </p>
+      <p
+        class="text-sm text-blue-800 dark:text-white"
+      >
+        Artist Two
+      </p>
+    </div>
+    <span
+      class="text-sm text-blue-900 dark:text-white"
+    >
+      4:20
+    </span>
+  </div>
+</div>
+`;
+
+exports[`PlayListItem snapshot tests > renders without isActive prop 1`] = `
+<div>
+  <div
+    class="
+        flex justify-between items-center p-3 rounded-md cursor-pointer transition-colors duration-300 ease-in-out
+        bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-blue-800/50
+      "
+  >
+    <div>
+      <p
+        class="font-medium text-gray-900 dark:text-gray-300"
+      >
+        Song Three
+      </p>
+      <p
+        class="text-sm text-gray-700 dark:text-gray-400"
+      >
+        Artist Three
+      </p>
+    </div>
+    <span
+      class="text-sm text-gray-700 dark:text-gray-400"
+    >
+      2:55
+    </span>
+  </div>
+</div>
+`;
