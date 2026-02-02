@@ -3,8 +3,6 @@ name: CI
 on:
   push:
     branches: [ main ]
-
-  # also run on PRs to main
   pull_request:
     branches: [ main ]
 
@@ -20,17 +18,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
-      - name: Install dependencies (clean install for Linux)
+      - name: Clean install for Linux
         run: |
-        
+          rm -rf node_modules
+          npm install
+
       - name: Run tests with coverage
         run: npm run coverage
         env:
           CI: true
 
-      - name: Upload coverage report (optional but recommended)
+      - name: Upload coverage report
         uses: actions/upload-artifact@v4
         if: always()
         with:
