@@ -5,6 +5,10 @@ export default defineConfig({
     plugins: [react()],
     test: {
         environment: "jsdom",
-        setupFiles: './src/setupTests.ts'
+        setupFiles: './src/setupTests.ts',
+        globals: true,
+        coverage: {
+            reporter: ['html']
+        },
     },
 });
