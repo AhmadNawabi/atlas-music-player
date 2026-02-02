@@ -1,16 +1,33 @@
-const originalConsoleWarn = console.warn;
-const originalConsoleError = console.error;
+if (typeof window !== 'undefined') {
+  const noop = () => {};
 
-console.warn = (...args) => {
-  if (typeof args[0] === 'string' && args[0].includes('HTMLMediaElement')) return;
-  originalConsoleWarn(...args);
-};
+  const mediaProto = window.HTMLMediaElement?.prototype;
+  
+  if (mediaProto) {
 
-console.error = (...args) => {
-  if (typeof args[0] === 'string' && args[0].includes('HTMLMediaElement')) return;
-  originalConsoleError(...args);
-};
+    (mediaProto as any).play = noop;
+    (mediaProto as any).pause = noop;
+    (mediaProto as any).load = noop;
+    (mediaProto as any).canPlayType = () => '';
+    (mediaProto as any).fastSeek = noop;
+    (mediaProto as any).addTextTrack = noop;
+    
+    // Patch properties
+    Object.defineProperty(mediaProto, 'volume', {
+      get: () => 1,
+      set: () => {},
+      configurable: true
+    });
+    
+    Object.defineProperty(mediaProto, 'muted', {
+      get: () => false,
+      set: () => {},
+      configurable: true
+    });
+  }
+}
 
+// MSW SETUP
 import { beforeAll, afterEach, afterAll } from "vitest";
 import { server } from "./mocks/server";
 
